@@ -34,16 +34,19 @@ const TableThree = () => {
         <table className="w-full table-auto">
           <thead>
             <tr className="bg-[#F7F9FC] text-left dark:bg-dark-2">
-              <th className="min-w-[220px] px-4 py-4 font-medium text-dark dark:text-white xl:pl-7.5">
-                Package
+              <th className="min-w-[20px] max-w-[20px] px-4 py-4 font-medium text-center text-dark dark:text-white xl:pl-7.5">
+                S.No
               </th>
-              <th className="min-w-[150px] px-4 py-4 font-medium text-dark dark:text-white">
-                Invoice date
+              <th className="min-w-[150px] px-4 py-4 font-medium text-center text-dark dark:text-white">
+                Name
               </th>
-              <th className="min-w-[120px] px-4 py-4 font-medium text-dark dark:text-white">
+              <th className="min-w-[120px] px-4 py-4 font-medium text-center text-dark dark:text-white">
+                Email
+              </th>
+              <th className="px-4 py-4 font-medium text-dark text-center dark:text-white xl:pr-7.5">
                 Status
               </th>
-              <th className="px-4 py-4 text-right font-medium text-dark dark:text-white xl:pr-7.5">
+              <th className="px-4 py-4 font-medium text-dark text-center dark:text-white xl:pr-7.5">
                 Actions
               </th>
             </tr>
@@ -51,8 +54,11 @@ const TableThree = () => {
           <tbody>
             {packageData.map((packageItem, index) => (
               <tr key={index}>
+                <td className={`border-[#eee] px-4 py-4 dark:border-dark-3 text-center ${index === packageData.length - 1 ? "border-b-0" : "border-b"}`}>
+                  <p className="text-dark dark:text-white">{index + 1}</p>
+                </td>
                 <td
-                  className={`border-[#eee] px-4 py-4 dark:border-dark-3 xl:pl-7.5 ${index === packageData.length - 1 ? "border-b-0" : "border-b"}`}
+                  className={`border-[#eee] px-4 py-4 dark:border-dark-3  text-center xl:pl-7.5 ${index === packageData.length - 1 ? "border-b-0" : "border-b"}`}
                 >
                   <h5 className="text-dark dark:text-white">
                     {packageItem.name}
@@ -62,23 +68,22 @@ const TableThree = () => {
                   </p>
                 </td>
                 <td
-                  className={`border-[#eee] px-4 py-4 dark:border-dark-3 ${index === packageData.length - 1 ? "border-b-0" : "border-b"}`}
+                  className={`border-[#eee] px-4 py-4 dark:border-dark-3  text-center ${index === packageData.length - 1 ? "border-b-0" : "border-b"}`}
                 >
                   <p className="text-dark dark:text-white">
                     {packageItem.invoiceDate}
                   </p>
                 </td>
                 <td
-                  className={`border-[#eee] px-4 py-4 dark:border-dark-3 ${index === packageData.length - 1 ? "border-b-0" : "border-b"}`}
+                  className={`border-[#eee] px-4 py-4 dark:border-dark-3 text-center  ${index === packageData.length - 1 ? "border-b-0" : "border-b"}`}
                 >
                   <p
-                    className={`inline-flex rounded-full px-3.5 py-1 text-body-sm font-medium ${
-                      packageItem.status === "Paid"
+                    className={`inline-flex rounded-full px-3.5 py-1 text-body-sm font-medium ${packageItem.status === "Paid"
                         ? "bg-[#219653]/[0.08] text-[#219653]"
                         : packageItem.status === "Unpaid"
                           ? "bg-[#D34053]/[0.08] text-[#D34053]"
                           : "bg-[#FFA70B]/[0.08] text-[#FFA70B]"
-                    }`}
+                      }`}
                   >
                     {packageItem.status}
                   </p>
@@ -86,7 +91,7 @@ const TableThree = () => {
                 <td
                   className={`border-[#eee] px-4 py-4 dark:border-dark-3 xl:pr-7.5 ${index === packageData.length - 1 ? "border-b-0" : "border-b"}`}
                 >
-                  <div className="flex items-center justify-end space-x-3.5">
+                  <div className="flex justify-center space-x-3.5">
                     <button className="hover:text-primary">
                       <svg
                         className="fill-current"
